@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript Tasks</title>
+</head>
+
+<body>
+
+  <h2>i. Arithmetic Operations</h2>
+  <script>
+    let num1 = parseFloat(prompt("Enter first number:"));
+    let num2 = parseFloat(prompt("Enter second number:"));
+    document.write("Sum: " + (num1 + num2) + "<br>");
+    document.write("Difference: " + (num1 - num2) + "<br>");
+    document.write("Product: " + (num1 * num2) + "<br>");
+    document.write("Quotient: " + (num1 / num2) + "<br><br>");
+  </script>
+
+  <h2>ii. Array Operations</h2>
+  <script>
+    let arr = [12, 45, 7, 23, 89];
+    let largest = Math.max(...arr);
+    let smallest = Math.min(...arr);
+    document.write("Array: " + arr + "<br>");
+    document.write("Largest: " + largest + "<br>");
+    document.write("Smallest: " + smallest + "<br>");
+    document.write("Ascending: " + arr.slice().sort((a, b) => a - b) + "<br>");
+    document.write("Descending: " + arr.slice().sort((a, b) => b - a) + "<br><br>");
+  </script>
+
+  <h2>iii. Form Validation</h2>
+  <form id="myForm">
+    Name: <input type="text" id="name"><br><br>
+    Email: <input type="text" id="email"><br><br>
+    Age: <input type="text" id="age"><br><br>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    document.getElementById("myForm").onsubmit = function (e) {
+      e.preventDefault();
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let age = parseInt(document.getElementById("age").value);
+      if (name.length === 0) {
+        alert("Name is required"); return;
+      }
+      if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email)) {
+        alert("Invalid email"); return;
+      }
+      if (isNaN(age) || age < 18 || age > 100) {
+        alert("Age must be between 18 and 100"); return;
+      }
+      alert("Form submitted successfully");
+    };
+  </script>
+
+  <h2>iv. Student Object</h2>
+  <script>
+    let student = { name: "Yashika", age: 19, grade: "B" };
+    student.class = "3C54";
+    student.grade = "A";
+    for (let key in student) {
+      document.write(key + ": " + student[key] + "<br>");
+    }
+    document.write("<br>");
+  </script>
+
+  <h2>v. Array Functions</h2>
+  <script>
+    function processArray(arr) {
+      return arr.filter(x => x % 2 === 0).map(x => x * 2).reduce((a, b) => a + b, 0);
+    }
+    let numbers = [1, 2, 3, 4, 5, 6];
+    document.write("Original: " + numbers + "<br>");
+    document.write("Resulting Sum: " + processArray(numbers));
+  </script>
+
+</body>
+
+</html>
